@@ -12,6 +12,8 @@
 // ===========================================================
 
 require __DIR__ . '/inc/classes/Article.php';
+require __DIR__ . '/inc/classes/Author.php';
+require __DIR__ . '/inc/classes/Category.php';
 
 // ===========================================================
 // Récupération des données nécessaires à toutes les pages
@@ -45,6 +47,10 @@ if ($pageToDisplay === 'home') {
     // d'objets Article
     require __DIR__ . '/inc/data.php';
     $articlesList = $dataArticlesList;
+    $categorieList = $dataCategoriesList; 
+    $authorList = $dataAuthorsList;
+
+   
 }
 // ------------------
 // Page Article
@@ -73,13 +79,52 @@ else if ($pageToDisplay === 'article') {
 // Page Auteur
 // ------------------
 else if ($pageToDisplay === 'author') {
+
+    require __DIR__ . '/inc/data.php';
+    $categorieList = $dataCategoriesList; 
+    $authorList = $dataAuthorsList;
+
+    $authorId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+    // filter_input renvoie null si la paramètre n'existe pas
+    // et false si le filtre de validation échoue
+    // On s'assure donc de ne pas tomber ni sur false, ni sur null
+    if ($authorId !== false && $authorId !== null) {
+        $authorToDisplay = $authorList[$authorId];
+    } 
+    // Si l'id n'est pas fourni, on affiche la page d'accueil
+    // plutôt que d'avoir un message d'erreur
+    else {
+        $pageToDisplay = 'home';
+    }
     
 }
 // ------------------
 // Page Catégorie
 // ------------------
+
+
 else if ($pageToDisplay === 'category') {
+    require __DIR__ . '/inc/data.php';
+
+    $categorieList = $dataCategoriesList; 
+    $authorList = $dataAuthorsList;
+
     
+    $categorieId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+    // filter_input renvoie null si la paramètre n'existe pas
+    // et false si le filtre de validation échoue
+    // On s'assure donc de ne pas tomber ni sur false, ni sur null
+    if ($categorieId !== false && $categorieId !== null) {
+        $categorieToDisplay = $categorieList[$categorieId];
+       // var_dump ( $categorieToDisplay[$categorieId]);
+        
+       
+    } 
+    // Si l'id n'est pas fourni, on affiche la page d'accueil
+    // plutôt que d'avoir un message d'erreur
+    else {
+        $pageToDisplay = 'home';
+    }
 }
 
 // ===========================================================
@@ -93,4 +138,5 @@ else if ($pageToDisplay === 'category') {
 
 require __DIR__.'/inc/templates/header.tpl.php';
 require __DIR__.'/inc/templates/' . $pageToDisplay . '.tpl.php';
+require __DIR__.'/inc/templates/aside.tpl.php';
 require __DIR__.'/inc/templates/footer.tpl.php';

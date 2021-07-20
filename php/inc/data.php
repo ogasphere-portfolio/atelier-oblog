@@ -32,7 +32,34 @@ $dataArticlesList = [
     ),
 ];
 
+
+
+
+// Les auteurs
+$dataAuthorsList = [
+    // ID => objet Author
+    1 => new Author('Maxime'),
+    2 => new Author('Anthony'),
+    3 => new Author('Alexandre'),
+    4 => new Author('Dario'),
+    5 => new Author('Julie'),
+    6 => new Author('Lucie'),
+    7 => new Author('Xavier')
+];
 // Les catégories
+$dataCategoriesList = [
+    // ID => objet Category
+    1 => new Category('TeamBack'),
+    2 => new Category('TeamFront'),
+    3 => new Category('Collaboration'),
+    4 => new Category('Ma Vie De Dev')
+];
+
+
+
+
+
+/* // Les catégories
 $dataCategoriesList = [
     1 => 'TeamBack',
     2 => 'TeamFront',
@@ -49,4 +76,4 @@ $dataAuthorsList = [
     5 => 'Julie',
     6 => 'Lucie',
     7 => 'Xavier'
-];
+]; */
