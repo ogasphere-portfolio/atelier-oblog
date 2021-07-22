@@ -15,6 +15,36 @@ require __DIR__ . '/inc/classes/Article.php';
 require __DIR__ . '/inc/classes/Author.php';
 require __DIR__ . '/inc/classes/Category.php';
 
+// Récupération du tableau Php contenant la liste
+// d'objets Article
+require __DIR__ . '/inc/data.php';
+
+
+    $servername = 'localhost';
+    $username = 'explorateur';
+    $password = 'Ereul9Aeng';
+    $bdd = "oblog";
+    
+    //On établit la connexion
+    
+
+    
+    //On essaie de se connecter
+    try{
+        $conn = new PDO("mysql:host=$servername;dbname=$bdd", $username, $password);
+        //On définit le mode d'erreur de PDO sur Exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      echo 'Connexion réussie';
+     
+    }
+    
+    /*On capture les exceptions si une exception est lancée et on affiche
+     *les informations relatives à celle-ci*/
+    catch(PDOException $e){
+      echo "Erreur : " . $e->getMessage();
+      
+    }
+
 // ===========================================================
 // Récupération des données nécessaires à toutes les pages
 // du site (pour le moment on ne récupère que la page à
@@ -43,9 +73,7 @@ if (isset($_GET['page']) && $_GET['page'] !== '') {
 // Page d'Accueil
 // ------------------
 if ($pageToDisplay === 'home') {
-    // Récupération du tableau Php contenant la liste
-    // d'objets Article
-    require __DIR__ . '/inc/data.php';
+    
     $articlesList = $dataArticlesList;
     $categorieList = $dataCategoriesList; 
     $authorList = $dataAuthorsList;
@@ -56,9 +84,7 @@ if ($pageToDisplay === 'home') {
 // Page Article
 // ------------------
 else if ($pageToDisplay === 'article') {
-    // Récupération du tableau Php contenant la liste
-    // d'objets Article
-    require __DIR__ . '/inc/data.php';
+    
     $articlesList = $dataArticlesList;
     // On souhaite récupérer uniquement les données de l'article
     // à afficher
@@ -80,7 +106,7 @@ else if ($pageToDisplay === 'article') {
 // ------------------
 else if ($pageToDisplay === 'author') {
 
-    require __DIR__ . '/inc/data.php';
+   
     $categorieList = $dataCategoriesList; 
     $authorList = $dataAuthorsList;
 
@@ -104,8 +130,7 @@ else if ($pageToDisplay === 'author') {
 
 
 else if ($pageToDisplay === 'category') {
-    require __DIR__ . '/inc/data.php';
-
+    
     $categorieList = $dataCategoriesList; 
     $authorList = $dataAuthorsList;
 

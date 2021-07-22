@@ -12,7 +12,7 @@
      </div>
     
      <?php $articlesList = $dataArticlesList; 
-            $articles = $categorieToDisplay->articles($articlesList);?>
+           $articles = $categorieToDisplay->articles($articlesList);?>
 
      <?php foreach ($articles as $key => $articleObject) :?>
                 <article class="card">

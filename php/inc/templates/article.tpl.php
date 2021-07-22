@@ -26,7 +26,6 @@
             <li class="page-item"><a class="page-link" href="#"><i class="fa fa-arrow-left"></i> Retour à l'accueil</a></li>
           </ul>
         </nav>
-
       </main>
 
       
