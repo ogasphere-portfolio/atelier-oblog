@@ -60,6 +60,8 @@ else if ($pageToDisplay === 'article') {
     // d'objets Article
     require __DIR__ . '/inc/data.php';
     $articlesList = $dataArticlesList;
+    $categorieList = $dataCategoriesList; 
+    $authorList = $dataAuthorsList;
     // On souhaite récupérer uniquement les données de l'article
     // à afficher
     $articleId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
