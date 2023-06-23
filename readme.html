@@ -1,0 +1,206 @@
+<h1 id="atelier">Atelier</h1>
+<p><strong>utiliser le code fourni dans le répertoire</strong> <code>php</code> du dépôt de l&#39;atelier <code>atelier-oblog</code> :</p>
+<h2 id="objectifs">Objectifs</h2>
+<ul>
+<li>Avancer sur le projet oBlog :tada:</li>
+<li>Utiliser le code HTML/CSS de l&#39;intégrateur :rainbow:</li>
+<li>Continuer à structurer plus proprement nos données avec des <code>class</code> :nerd_face:</li>
+<li>:warning: Pour chaque étape, coder dans une <strong>branche git spécifique</strong>, puis <strong>commiter</strong> et enfin <strong>fusionner dans master</strong> une fois l&#39;étape terminée</li>
+</ul>
+<h2 id="rappels-divers">Rappels divers</h2>
+<ul>
+<li>Le site est structuré autour d&#39;un fichier index.php qui affiche différents templates selon la valeur de <code>$_GET[&#39;page&#39;]</code> (ou <code>filter_input(INPUT_GET, &#39;page&#39;)</code>).</li>
+<li>Une classe définit des propriétés et des méthodes pour ses futures instances.</li>
+<li>Chaque propriété, chaque méthode peut être définie en accès <code>public</code> (accessible depuis l&#39;extérieur de la classe) ou <code>private</code> (accessible uniquement depuis l&#39;intérieur du code de la classe), selon son utilisation/but.</li>
+</ul>
+<h2 id="code-fourni">Code fourni</h2>
+<ul>
+<li>Une intégration HTML/CSS toute prête !</li>
+<li>Un fichier <code>bonus/inc/data.php</code> à utiliser à l&#39;étape des bonus (donc on le laisse de côté pour le moment :pray:)</li>
+</ul>
+<h2 id="étapes">Étapes</h2>
+<h3 id="étape-1---découper-scissors">Étape 1 - Découper :scissors:</h3>
+<p><em>On va récupérer l&#39;intégration HTML/CSS fournie par le graphiste, et la découper en templates.</em></p>
+<blockquote>
+<p>N&#39;hésitez pas à faire plusieurs commits, avec des messages clairs :ok_hand:</p>
+</blockquote>
+<p>Créer une branche <code>cut-cut-cut</code> et se placer dedans.</p>
+<ol>
+<li>À partir de l&#39;intégration HTML/CSS fournie dans le dossier integration-html-css/ :<ul>
+<li>découper l&#39;intégration en plusieurs morceaux, un morceau par template PHP</li>
+<li>3 templates =&gt; 3 morceaux (cf. le code source de oBlog :wink:)</li>
+<li>pour le template central qui affiche les articles, commenter la boucle <code>foreach</code> pour le moment</li>
+</ul>
+</li>
+<li>Bien contrôler le bon affichage de l&#39;intégration HTML/CSS :<ul>
+<li>le site doit être « plein de couleurs » et ne doit plus ressembler à une maquette filaire :ok_hand:</li>
+<li>la page d&#39;accueil doit s&#39;afficher correctement (pas de bugs PHP)</li>
+</ul>
+</li>
+</ol>
+<p>Ajouter et commiter les modifications avec git :)<br>Revenir sur la branche <code>master</code> et y fusionner la branche <code>cut-cut-cut</code>.  </p>
+<h3 id="étape-2---dynamiser-boom">Étape 2 - Dynamiser :boom:</h3>
+<p><em>On va dynamiser les templates, pour afficher les données des articles.</em></p>
+<blockquote>
+<p>N&#39;hésitez pas à faire plusieurs commits, avec des messages clairs :ok_hand:</p>
+</blockquote>
+<p>Créer une branche <code>dynamiser</code> et se placer dedans.</p>
+<ol>
+<li>Dynamiser l&#39;affichage <em>des</em> articles dans le template home.tpl.php :<ul>
+<li>adapter la boucle sur les objets <code>Article</code> pour dynamiser la liste d&#39;article…</li>
+<li>… en veillant à conserver intacte l&#39;intégration HTML/CSS</li>
+</ul>
+</li>
+<li>Dynamiser l&#39;affichage d&#39;<em>un</em> article dans le template article.tpl.php<ul>
+<li>adapter l&#39;utilisation de l&#39;objet <code>Article</code> pour dynamiser la page d&#39;un article…</li>
+<li>… en veillant à conserver intacte l&#39;intégration HTML/CSS</li>
+</ul>
+</li>
+<li>On veut aussi dynamiser les catégories (affichées en haut <em>et</em> à droite) :<ul>
+<li>récupérer la liste des catégories en PHP</li>
+<li>itérer sur la liste dans les templates adaptés et afficher les catégories dynamiquement</li>
+</ul>
+</li>
+<li>On veut aussi dynamiser les auteurs (affichés à droite) :<ul>
+<li>récupérer la liste des auteurs en PHP</li>
+<li>itérer sur la liste dans le template adapté et afficher les auteurs dynamiquement</li>
+</ul>
+</li>
+</ol>
+<p>Ajouter et commiter les modifications avec git :)<br>Revenir sur la branche <code>master</code> et y fusionner la branche <code>dynamiser</code>.  </p>
+<details><summary>Exemple de code pour la liste des auteurs</summary>
+
+<pre><code class="language-html">&lt;!-- Auteurs: https://getbootstrap.com/docs/4.1/components/card/#list-groups --&gt;
+&lt;div class=&quot;card&quot;&gt;
+&lt;h3 class=&quot;card-header&quot;&gt;Auteurs&lt;/h3&gt;
+&lt;ul class=&quot;list-group list-group-flush&quot;&gt;
+    &lt;?php foreach ($authors as $authorId =&gt; $authorName) : ?&gt;
+    &lt;li class=&quot;list-group-item&quot;&gt;&lt;?= $authorName ?&gt;&lt;/li&gt;
+    &lt;?php endforeach; ?&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+</details>
+
+<h3 id="étape-3---liens-internes-anchor">Étape 3 - Liens internes :anchor:</h3>
+<p><em>On continue à dynamiser le site, cette fois en gérant les liens entre les pages.</em></p>
+<blockquote>
+<p>N&#39;hésitez pas à faire plusieurs commits, avec des messages clairs :ok_hand:</p>
+</blockquote>
+<p>Créer une branche <code>liens</code> et se placer dedans.</p>
+<ol>
+<li>Dans l&#39;entête de la page :<ul>
+<li>définir le lien vers chaque page catégorie</li>
+<li>l&#39;URL d&#39;un lien ressemblera à <code>index.php?page=category&amp;id=4</code> (ici <code>4</code> pour la catégorie dont l&#39;id est 4)</li>
+<li>:warning: l&#39;id doit être géré dynamiquement au sein de l&#39;itération</li>
+</ul>
+</li>
+<li>Dans la sidebar à droite :<ul>
+<li>définir le lien vers chaque page catégorie (même principe que pour l&#39;entête)</li>
+<li>définir le lien vers chaque page auteur (même principe que pour les catégories)</li>
+<li>:warning: l&#39;id doit être géré dynamiquement au sein de l&#39;itération</li>
+</ul>
+</li>
+</ol>
+<p>Vérifier que tous les liens fonctionnent bien.  </p>
+<blockquote>
+<p>:hand: A cette étape on affiche uniquement les noms des auteurs et des catégories.<br>Les articles liés seront affichés aux étapes 5 et 6.</p>
+</blockquote>
+<p>Ajouter et commiter les modifications avec git :)<br>Revenir sur la branche <code>master</code> et y fusionner la branche <code>liens</code>.  </p>
+<h3 id="étape-4---classes-category--author-sunglasses">Étape 4 - Classes Category &amp; Author :sunglasses:</h3>
+<p><em>On améliore la gestion des données.</em></p>
+<blockquote>
+<p>N&#39;hésitez pas à faire plusieurs commits, avec des messages clairs :ok_hand:</p>
+</blockquote>
+<p>Créer une branche <code>classes-category-author</code> et se placer dedans.</p>
+<ol>
+<li>Dans le fichier <code>inc/data.php</code>, modifier le code pour utiliser les 2 variables fournies dans le spoiler ci-dessous<ul>
+<li>observer que les données transmises aux templates sont différentes</li>
+<li><strong>en conséquence, il faudra plus tard (partie 3 ci-dessous) adapter le code des templates pour conserver un affichage correct, mais d&#39;abord, nous devons créer les classes en codant la partie 2</strong></li>
+</ul>
+</li>
+<li>Créer deux nouvelles classes dans <code>inc/classes/</code> :<ul>
+<li>une classe <code>Category</code> pour structurer les données de chaque catégorie</li>
+<li>une classe <code>Author</code> pour structurer les données de chaque auteur</li>
+<li>ces 2 classes ressembleront beaucoup à la classe <code>Article</code> déjà créée</li>
+</ul>
+</li>
+<li>Corriger l&#39;affichage des templates en mettant à profit ces deux nouvelles classes.<ul>
+<li><strong>rappel : <code>$object-&gt;property</code></strong></li>
+</ul>
+</li>
+</ol>
+<p>Vérifier que toutes les pages sont toujours fonctionnelles.<br>Ajouter et commiter les modifications avec git :)<br>Revenir sur la branche <code>master</code> et y fusionner la branche <code>classes-category-author</code>.  </p>
+<details><summary>Indice(s)</summary>
+
+<ul>
+<li>il faudra coder un ou des paramètre(s) optionnel(s) au constructeur afin de déterminer la valeur de la ou les propriété(s)</li>
+</ul>
+</details>
+
+<details><summary>2 variables pour inc/data.php</summary>
+
+<pre><code class="language-php">&lt;?php
+
+// [...]
+
+// Les catégories
+$dataCategoriesList = [
+    // ID =&gt; objet Category
+    1 =&gt; new Category(&#39;TeamBack&#39;),
+    2 =&gt; new Category(&#39;TeamFront&#39;),
+    3 =&gt; new Category(&#39;Collaboration&#39;),
+    4 =&gt; new Category(&#39;Ma Vie De Dev&#39;)
+];
+
+// Les auteurs
+$dataAuthorsList = [
+    // ID =&gt; objet Author
+    1 =&gt; new Author(&#39;Maxime&#39;),
+    2 =&gt; new Author(&#39;Anthony&#39;),
+    3 =&gt; new Author(&#39;Alexandre&#39;),
+    4 =&gt; new Author(&#39;Dario&#39;),
+    5 =&gt; new Author(&#39;Julie&#39;),
+    6 =&gt; new Author(&#39;Lucie&#39;),
+    7 =&gt; new Author(&#39;Xavier&#39;)
+];
+</code></pre>
+</details>
+
+<h3 id="étape-5---page-catégorie-doughnut">Étape 5 - Page catégorie :doughnut:</h3>
+<p><em>On va améliorer la page d&#39;une catégorie.</em></p>
+<blockquote>
+<p>N&#39;hésitez pas à faire plusieurs commits, avec des messages clairs :ok_hand:</p>
+</blockquote>
+<p>Créer une branche <code>page-category</code> et se placer dedans.</p>
+<ol>
+<li>Dans le template category.tpl.php on veut afficher le nom de la catégorie dans un <code>&lt;h1&gt;</code> :<ul>
+<li>récupérer un objet <code>Category</code> à partir de son id</li>
+</ul>
+</li>
+<li>On veut également afficher la liste de tous les articles associés à cette catégorie :<ul>
+<li>récupérer un tableau d&#39;objets <code>Article</code> à partir de la catégorie</li>
+<li>modifier les templates pour afficher les données sur le site</li>
+</ul>
+</li>
+</ol>
+<p>Vérifier que la page s&#39;affiche correctement.<br>Ajouter et commiter les modifications avec git :)<br>Revenir sur la branche <code>master</code> et y fusionner la branche <code>page-category</code>.  </p>
+<details><summary>Indices pour la récupération des articles d'une catégorie</summary>
+
+<ul>
+<li>:warning: attention à ne pas récupérer <em>tous</em> les articles, mais bien uniquement ceux dont le nom de la catégorie correspond au nom de la catégorie demandée</li>
+<li>idée : on peut créer un tableau vide, qu&#39;on remplira avec les articles de la catégorie, au fur et à mesure</li>
+<li>pour chaque article du site, <em>si</em> le nom de sa catégorie correspond à la catégorie demandée, <em>alors</em> ajouter l&#39;article dans le tableau</li>
+<li>à la fin de l&#39;itération, le tableau, à retourner, comprendra seulement les articles de la catégorie</li>
+</ul>
+</details>
+
+<h3 id="étape-6---page-auteur-icecream">Étape 6 - Page auteur :icecream:</h3>
+<p>Créer une branche <code>page-author</code> et se placer dedans.</p>
+<blockquote>
+<p>C&#39;est comme l&#39;étape précédente, mais avec les auteurs au lieu des catégories :wink:</p>
+</blockquote>
+<p>Vérifier que la page s&#39;affiche correctement.<br>Ajouter et commiter les modifications avec git :)<br>Revenir sur la branche <code>master</code> et y fusionner la branche <code>page-author</code>.</p>
+<p><strong>Fin de l&#39;atelier :tada:</strong></p>
+<h2 id="bonus">Bonus</h2>
+<p>En cliquant sur <a href="bonus.md">ce lien</a>, je confirme avoir terminé l&#39;atelier avant l&#39;heure et je confirme souhaiter être confronté à une demande qui n&#39;aura pas été vue en cours.</p>
