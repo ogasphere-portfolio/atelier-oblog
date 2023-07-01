@@ -1,9 +1,7 @@
 # Atelier
 
-**utiliser le code fourni dans le répertoire** `php` du dépôt de l'atelier `S04-E04-atelier-oblog` :
-    - _ce code assure les mêmes fonctionnalités que celles mises en place dans l'exercice `S04-E03-oblog`_
-    - _et permet de repartir sur une base commune (et saine)_
-
+**utiliser le code fourni dans le répertoire** `php` du dépôt de l'atelier `atelier-oblog` :
+   
 ## Objectifs
 
 - Avancer sur le projet oBlog :tada:

@@ -1,0 +1,3 @@
+[submodule "Projets/atelier-oblog"]
+	path = Projets/atelier-oblog
+	url = https://github.com/ogasphere-portfolio/atelier-oblog.git
