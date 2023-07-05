@@ -1,0 +1,54 @@
+<h2 id="bonus">Bonus</h2>
+<h3 id="bonus---sous-objets-fearful">Bonus - Sous-objets 😨</h3>
+<p><em>On améliore la façon de stocker les données du site. Il y a quelques conséquences à gérer !</em></p>
+<blockquote>
+  <p>N'hésitez pas à faire plusieurs commits, avec des messages clairs 👌</p>
+</blockquote>
+<p>Créer une branche <code>sub-objects</code> et se placer dedans.  </p>
+<ol>
+<li>Remplacer le fichier inc/data.php par celui fourni dans bonus/inc/data.php.</li>
+<li>Confirmer que, sur la page d'accueil et sur la page d'un article, une <strong>Fatal Error</strong> se déclenche au niveau des articles<ul>
+<li>c'est normal : les propriétés <code>author</code> et <code>category</code> sont désormais des <em>Objets</em> (auparavant, c'était des <em>String</em>)</li>
+<li>trouver comment afficher le nom de l'auteur et de la catégorie <em>sans modifier le fichier inc/data.php</em><br />
+-⚠️ un nouveau problème va se poser, pour la gestion des liens vers les pages de l'auteur et de la catégorie  </li>
+<li>temporairement désactiver les liens en mettant un <em>dummy id</em> du type <code>#</code></li></ul></li>
+<li>Confirmer que les pages d'une catégorie ou d'un auteur n'affiche plus la liste des articles<ul>
+<li>c'est normal : les fonctions de récupération des listes d'articles doivent tenir compte de la nouvelle façon de stocker les données</li>
+<li>trouver comment corriger le problème dans les fonctions appropriées</li></ul></li>
+</ol>
+<p>Vérifier que l'affichage sur la page d'accueil et la page d'un article est conforme.  <br />
+Ajouter et commiter les modifications avec git :)  <br />
+Revenir sur la branche <code>master</code> et y fusionner la branche <code>sub-objects</code>.  </p>
+<p><details><summary>Indices</summary></p>
+<ul>
+<li>l'erreur vient de la tentative de faire un <code>echo</code> d'un objet (instance d'une classe)</li>
+<li>on ne veut pas afficher l'objet complet, juste une de ses propriétés</li>
+<li>on peut «&nbsp;enchaîner&nbsp;» l'accès aux propriétés d'un objet dans un objet avec plusieurs opérateurs <code>-&gt;</code></li>
+</ul>
+<p></details></p>
+<h3 id="mega-bonus---objets-uniques">Mega Bonus - Objets uniques</h3>
+<p><em>On corrige les problèmes relevés à l'étape précédente, toute en améliorant encore le stockage des données.</em></p>
+<blockquote>
+  <p>N'hésitez pas à faire plusieurs commits, avec des messages clairs 👌</p>
+</blockquote>
+<p>Créer une branche <code>unique-objects</code> et se placer dedans.</p>
+<ul>
+<li>Il y a de la duplication de code dans <code>inc/data.php</code> : on a (potentiellement) plusieurs instances similaires créés pour un même auteur, ou une même catégorie.</li>
+<li>Il faut trouver un moyen d'identifier de façon <em>unique</em> tel auteur ou telle catégorie, afin de ne plus créer ces multiples instances similaires.</li>
+<li>Modifier les templates pour prendre en compte ces modifications (attention, travail fastidieux).</li>
+</ul>
+<p>Vérifier que l'affichage sur l'ensemble du site est conforme. Bien faire attention aux <em>liens</em>.  <br />
+Ajouter et commiter les modifications avec git :)  <br />
+Revenir sur la branche <code>master</code> et y fusionner la branche <code>unique-objects</code>.</p>
+<p><details><summary>Indices</summary></p>
+<ul>
+<li>Pour identifier de façon unique une ressource, le plus simple, c'est d'avoir un <em>identifiant unique</em> pour chaque ressource.</li>
+<li>Bien analyser les tableaux <code>$dataAuthorsList</code> et <code>$dataCategoriesList</code>, notamment leurs clés.</li>
+</ul>
+<p></details></p>
+<h3 id="bonus-_je-moccupe_---améliorations">Bonus <em>je m'occupe</em> - Améliorations</h3>
+<p>Créer une branche <code>mes-ameliorations</code> et se placer dedans.</p>
+<ul>
+<li>Il y a encore pleins de choses qui pourraient être améliorées…</li>
+<li>… on te laisse effectuer ces améliorations 😉</li>
+</ul>
